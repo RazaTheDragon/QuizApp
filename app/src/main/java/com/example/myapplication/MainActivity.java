@@ -64,7 +64,25 @@ public class MainActivity extends AppCompatActivity {
 
         mQuestion.setText(String.valueOf(obj[0]));
 
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
 
+            mNext.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
+                    Intent i = CheatActivity.newIntent(QuizActivity.this, answerIsTrue);
+                    startActivity(i);
+                }
+            });
 
     }
+        public class 2 extends AppCompatActivity {
+            private static final String EXTRA_ANSWER_IS_TRUE =
+                    "com.bignerdranch.android.geoquiz.answer_is_true";
+            public static Intent newIntent(Context packageContext, boolean answerIsTrue) {
+                Intent i = new Intent(packageContext, 2.class);
+                i.putExtra(EXTRA_ANSWER_IS_TRUE, answerIsTrue);
+                return i;
+            }
 }
