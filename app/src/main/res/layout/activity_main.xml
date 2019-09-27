@@ -23,7 +23,6 @@
             android:layout_below="@+id/header"
             android:orientation="vertical">
 
-
             <TextView
                 android:id="@+id/question"
                 android:layout_width="match_parent"
